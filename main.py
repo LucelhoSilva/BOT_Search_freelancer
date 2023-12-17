@@ -8,7 +8,7 @@ from engines.freelancer import get_freelancer
 from engines.workana import get_workana
 
 bot = hikari.GatewayBot(keyring.get_password('bot_freelancer', 'token'), intents=intents.Intents.ALL)
-channel_id = 1144974807432183811
+channel_id = keyring.get_password('bot_freelancer', 'channel')
 
 sent_freelancer = []
 
