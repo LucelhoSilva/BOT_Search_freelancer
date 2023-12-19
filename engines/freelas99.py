@@ -1,7 +1,7 @@
 import httpx
 from bs4 import BeautifulSoup
 
-async def get_freelancer99() -> list:
+async def get_freelas99() -> list:
 
   frelas = []
 
@@ -14,9 +14,13 @@ async def get_freelancer99() -> list:
         title = cell.find("h1", class_="title").get_text(strip=True)
         url = cell.find("a")["href"]
         link = "https://www.99freelas.com.br" + url
-        description = cell.find("div", class_="item-text description formatted-text").get_text(strip=True)[:1000]
+        stack = cell.find("p", class_="item-text habilidades")
+        if stack:
+          stack = ' - '.join(a.get_text(strip=True) for a in stack.find_all("a"))
+        else:
+          stack = "Não informado"
 
-        frelas.append([url,title, description, link])
+        frelas.append([url,title,stack,link])
 
   return frelas
 
