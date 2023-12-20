@@ -22,25 +22,25 @@ async def on_started(event: hikari.StartedEvent) -> None:
     * Workana
     '''
   
-    # 99freelas
-    results = await get_freelas99()
-    for result in results:
-        if result[0] not in sent_freelancer:
-            sent_freelancer.append(result[0])
-            freelancer_info = f'{"-"*50}\n\nTRABALHO: {result[1]}\nSTACK:{result[2]}\nLINK: {result[3]}'
-            await bot.rest.create_message(channel_id, freelancer_info)
-            await asyncio.sleep(60)
-    await asyncio.sleep(30)
-
-    # # Freelancer
-    # results = await get_freelancer()
+    # # 99freelas
+    # results = await get_freelas99()
     # for result in results:
     #     if result[0] not in sent_freelancer:
     #         sent_freelancer.append(result[0])
-    #         freelancer_info = f'{"-"*50}\n\nTRABALHO: {result[1]}\nLINK: {result[3]}'
+    #         freelancer_info = f'{"-"*50}\n\nTRABALHO: {result[1]}\nSTACK: {result[2]}\nLINK: {result[3]}'
     #         await bot.rest.create_message(channel_id, freelancer_info)
     #         await asyncio.sleep(60)
     # await asyncio.sleep(30)
+
+    # Freelancer
+    results = await get_freelancer()
+    for result in results:
+        if result[0] not in sent_freelancer:
+            sent_freelancer.append(result[0])
+            freelancer_info = f'{"-"*50}\n\nTRABALHO: {result[1]}\nSTACK: {result[2]} \nLINK: {result[3]}'
+            await bot.rest.create_message(channel_id, freelancer_info)
+            await asyncio.sleep(60)
+    await asyncio.sleep(30)
 
     # # Workana
     # results = await get_workana()
