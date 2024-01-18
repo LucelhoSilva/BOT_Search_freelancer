@@ -34,10 +34,10 @@ async def on_started(event: hikari.StartedEvent) -> None:
     with open ('job_vacancies.csv', 'a+', newline='', encoding='utf-8') as f:
         csv_writer = csv.writer(f)
         for result in results:
-            if result[2] not in sent_freelancer:
-                sent_freelancer.add(result[2])
+            if result[3] not in sent_freelancer:
+                sent_freelancer.add(result[3])
                 csv_writer.writerow(result)
-                freelancer_info = f'{"-"*50}\n\nTRABALHO: {result[0]}\nSTACK:{result[1]}\nLINK: {result[2]}'
+                freelancer_info = f'{"-"*50}\n\nTRABALHO: {result[1]}\nSTACK:{result[2]}\nLINK: {result[3]}'
                 await bot.rest.create_message(channel_id, freelancer_info)
                 await asyncio.sleep(30)
         await asyncio.sleep(60)
@@ -47,10 +47,10 @@ async def on_started(event: hikari.StartedEvent) -> None:
     with open ('job_vacancies.csv', 'a+', newline='', encoding='utf-8') as f:
         csv_writer = csv.writer(f)
         for result in results:
-            if result[1] not in sent_freelancer:
-                sent_freelancer.add(result[1])
+            if result[3] not in sent_freelancer:
+                sent_freelancer.add(result[3])
                 csv_writer.writerow(result)
-                freelancer_info = f'{"-"*50}\n\nTRABALHO: {result[0]}\nLINK: {result[1]}'
+                freelancer_info = f'{"-"*50}\n\nTRABALHO: {result[1]}\nSTACK:{result[2]}\nLINK: {result[3]}'
                 await bot.rest.create_message(channel_id, freelancer_info)
                 await asyncio.sleep(30)
         await asyncio.sleep(60)
@@ -60,10 +60,10 @@ async def on_started(event: hikari.StartedEvent) -> None:
     with open ('job_vacancies.csv', 'a+', newline='', encoding='utf-8') as f:
         csv_writer = csv.writer(f)
         for result in results:
-            if result[2] not in sent_freelancer:
-                sent_freelancer.add(result[2])
+            if result[0] not in sent_freelancer:
+                sent_freelancer.add(result[0])
                 csv_writer.writerow(result)
-                freelancer_info = f'{"-"*50}\n\nTRABALHO: {result[0]}\nSTACKS: {result[1]}\nLINK: {result[2]}'
+                freelancer_info = f'{"-"*50}\n\nTRABALHO: {result[1]}\nSTACKS: {result[2]}\nLINK: {result[3]}'
                 await bot.rest.create_message(channel_id, freelancer_info)
                 await asyncio.sleep(30)
         await asyncio.sleep(60)
